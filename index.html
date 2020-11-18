@@ -40,7 +40,7 @@
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pesan">Pesan</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#layanan">Layanan</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#produk">Produk</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Produk</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#kontak">Kontak</a></li>
                     </ul>
                 </div>
@@ -176,19 +176,22 @@
                <!-- FORM PEMESANAN TRANSPORTASI ONLINE FAROUQ 0031 ALIF 0032 RAISA 0035-->
 
                <section class="page-section bg-opacity"  id="pesan">
+                <form class="form-vertical merrifont" id="signup" method="post" action="">
                 <div class="container kotakform" data-aos="zoom-in" data-aos-duration="1500">
-        
+                    
                             <div class="col-lg-12 text-center">
                             <h2 class="text-dark mt-0">Pesan diUber</h2>
                             <hr class="divider dark my-4" /> 
                             </div>
-        
-                        <div class="row">
+
+                    
+                            <div class="row">
                             <div class ="col-lg-6 p-l-r-5p">
+                                
                                <!--LOKASI-->
                                 <div class="form-vertical  merrifont" style="width: 100%;">
                                      <!--Lokasi-->
-                                <div class="form-group  merrifont">
+                                <div class="form-group merrifont">
                                     <label class="col-sm-12 control-label text-dark mt-0 merrifontsans strong" >Lokasi sekarang</label>
                                     <div class="col-lg-12" style="width: 100%;" >
                                         <input type="text" class="form-control" id="us3-address" />
@@ -205,106 +208,48 @@
         
                                 <!--Pilih kendaraan-->
                                 <div class="col-lg-6">
-                                <form class="form-vertical  merrifont" style="width: 100%;">
+                                
+                                
                                     <span class="control-label text-dark mt-0  merrifontsans strong">Pilih kendaraan</span>
                                     <select id="Kendaraan" class="infobox form-control">
                                     <option value="Motor">Motor</option>
                                     <option value="Mobil">Mobil</option>
                                     </select>
-                                    <p class="result"></p>
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('.submit').click(function(event){
-                                            var count=$('select option:selected').val();
-                                            if(count==0)
-                                            {
-                                            $('p.result').hide();
-                                            }
-                                            else
-                                            {
-                                            $('p.result').show();
-                                            }
-                                            event.preventDefault();
-                                            });
-                                            });
-                                    </script>
+                                                     
                                     </div>
-                                    </form>
+                                    
                                 </div>
                                      <!--memilih metode pembayaran -->
                                 <label class="col-lg-12 control-label text-dark mt-0 merrifontsans strong">Metode Pembayaran</label>
-                                <div style="width: 94%;" class="kotak col-lg-5">
-                                <form class="form-vertical" style="width: 100%;"> 
+                                <div style="width: 94%;" class="kotak col-lg-12">
+                              
                                     <input type="radio" name="paymode" class="infobox" value="Tunai"> Tunai <br>
                                     <p></p>
                                     <input type="radio" name="paymode" class="infobox" value="diUberPay"> diUberPay<br>
                                     <p></p>
                                     <input type="radio" name="paymode" class="infobox" value="M-Banking"> M-Banking<br>
-                                    <p class="result"></p>
-                                    </form>
+                                   
+                                </div>
                                 
-                                    <script> //SCRIPT PEMBAYARAN
-                                                $(document).ready(function() {
-                                                $('.error').hide();
-                                                $('.submit').click(function(event){
-                                                var amt=0;
-                                                var count=$('input:checked').length;
-                                                if(count==0)
-                                                {
-                                                $('p.result').hide();
-                                                $('.error').show();
-                                                }
-                                                else
-                                                {
-                                                $('.error').hide();
-                                                $('p.result').show();
-                                                $('p.result').text('You have selected'+$('input:checked').attr("value"));
-                                                }
-                                                event.preventDefault();
-                                                });
-                                                });
-                                    </script>
-                            </div>
-                            <label class="col-lg-12 control-label text-primary mt-0 merrifontsans error">Pilih setidaknya satu metode pembayaran!</label>
-                                <!--Isi Nomor-->
-                    <body>
-                        <form id="signup" method="post" action="">
-                        <label class="col-lg-12 control-label text-dark mt-0 merrifontsans">Masukkan Nomor</label>
-                        <div><input type="text" class="form-control" name="phone" />
-                        <label class="col-lg-12 control-label text-primary mt-0 merrifontsans error">Masukkan nomor telefon yang valid!</label>
-                    </div>
-                        
-                        </form>
-                        <script>
-                            $(document).ready(function() { //fungsi yang berjalan saat memuat web
-                                $('.error').hide(); //menyembunyikan pesan error
-                                $('.submit').click(function(event){ //menjalankan suatu event saat tombol submit diklik
-                                    var data=$('.infobox').val(); //mengatur nilai pada infobox sesuai yang diinputkan
-                                    if(validate_phoneno(data)) //memvalidasi data yang masuk
-                                {
-                                    $('.error').hide(); //jika nomor telfon valid, pesan error disembunyikan
-                                }
-                                else
-                                {
-                                    $('.error').show(); //menampilkan pesan error jika nomer telfon tidak valid
-                                    event.preventDefault(); //menghentikan tindakan default dari elemen yang dipilih untuk terjadi.
-                                }
-                                });
-                            });
-                            function validate_phoneno(ph) //fungsi untuk memvalidasi data yang diinputkan
-                            {   
-                                var pattern=new RegExp(/^[0-9-+]+$/); //menentukan nilai data apa saja yang dianggap valid
-                                return pattern.test(ph); //memeriksa apakah data sudah sesuai atau belum
-                            }
-                        </script>
-                    </body>
+                                <p class="col-lg-12 control-label text-info mt-0 merrifontsans result"></p>       
+                                <span class="col-lg-12 control-label text-primary mt-0 merrifontsans error">Pilih setidaknya satu metode pembayaran!</span>
+                                <label class="col-lg-12 control-label text-dark mt-0 merrifontsans">Nomor Telefon</label>
+                                <div style="width: 94%;" class="col-lg-12">
+                                            
+                                                <!--Isi Nomor-->         
+                                 <div>
+
+                                    <input type="text" class="form-control" name="phone"/>
+                                    <span class="col-lg-12 control-label text-primary mt-0 merrifontsans error">Masukkan nomor telefon yang valid!</span>
+                                </div>                    
+                    </div>               
                 </div>
         
                     <!--Map-->
         <div class="col-lg-6 justify-content-center" id="us3" style="text-align: center; width: 100%; height: 500px; margin-top:10px;"></div>
                 <div class="clearfix"> &nbsp;</div>
                     <div class="clearfix"></div>
-                    <script>
+                    <script>//script map
                                 $('#us3').locationpicker({
                                 location: {
                                 latitude: 	-7.2574719,
@@ -328,11 +273,41 @@
                 </div>
             
             <div class="col-lg-12 text-center">
-                <input class="submit btn btn-dark btn-xl js-scroll-trigger" type="submit" value="Pesan Sekarang"></a>
+                <input class="submit btn btn-dark btn-xl js-scroll-trigger" type="submit" value="Pesan Sekarang">
             </div>
+        </form>
+      
+        
+        <script>//script validasi nomor telfon
+                $(document).ready(function() { //fungsi yang berjalan saat memuat web
+                    $('.error').hide(); //menyembunyikan pesan error
+                    $('.submit').click(function(event){ //menjalankan suatu event saat tombol submit diklik
+                        var data=$('.infobox').val(); //mengatur nilai pada infobox sesuai yang diinputkan
+                        if(validate_phoneno(data)) //memvalidasi data yang masuk
+                    {
+                        $('.error').hide(); //jika nomor telfon valid, pesan error disembunyikan
+                    }
+                    else
+                    {
+                        $('.error').show(); //menampilkan pesan error jika nomer telfon tidak valid
+                        event.preventDefault(); //menghentikan tindakan default dari elemen yang dipilih untuk terjadi.
+                    }
+                    });
+                });
+                function validate_phoneno(ph) //fungsi untuk memvalidasi data yang diinputkan
+                {   
+                    var pattern=new RegExp(/^[0-9-+]+$/); //menentukan nilai data apa saja yang dianggap valid
+                    return pattern.test(ph); //memeriksa apakah data sudah sesuai atau belum
+                }
+        </script>
             </section>
 
-    
+
+
+
+
+
+
         <!-- OUR PRODUCT oleh Farouq 0031--> 
 
         <section class="page-section" id="layanan">
@@ -372,19 +347,24 @@
                 </div>
             </div>
         </section>
-
 </section>
+
+
+
+
+
+
+
         <!-- Portfolio raisa 0035-->
-        <div id="produk">
-            <section class="page-section">
+        <div id="portfolio">
+            <section  class="page-section bg-pwhite text-dark">
                 <div class="container text-center">
                     <h2 class="mb-4">Produk Kami</h2>
                     <hr class="divider my-4" />
                 </div>
-            <div class="container-fluid p-0">
-                <div class="row no-gutters">
-                    <div class="col-lg-4 col-sm-6" data-aos="fade-up"
-                    data-aos-duration="1000">
+            <div style="margin:0 padding:0px;" class="container-fluid p-0" >
+                <div class="row no-gutters text-center">
+                    <div class="col-lg-4 col-sm-12 text-center"  data-aos="fade-up" data-aos-duration="1000">
                         <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.png">
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.png" alt="" />
                             <div class="portfolio-box-caption">
@@ -393,8 +373,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-sm-6" data-aos="fade-up"
-                    data-aos-duration="1500">
+                    <div class="col-lg-4 col-sm-12 text-center"  data-aos="fade-up" data-aos-duration="1500">
                         <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.png">
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.png" alt="" />
                             <div class="portfolio-box-caption">
@@ -403,8 +382,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-sm-6" data-aos="fade-up"
-                    data-aos-duration="2000">
+                    <div class="col-lg-4 col-sm-12 text-center"  data-aos="fade-up" data-aos-duration="2000">
                         <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.png">
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.png" alt="" />
                             <div class="portfolio-box-caption">
@@ -413,8 +391,9 @@
                             </div>
                         </a>
                     </div>
-                        </a>
-                    </div>
+                    
+                        
+                    
                 </div>
             </div>
         </div>
@@ -422,6 +401,7 @@
 
 
         
+
 
 
 
@@ -440,30 +420,37 @@
                         <img class="img-fluid round-pinggir" src="assets/img/contact-us/farouq.jpeg" alt="" />
                         <h2><b>Farouq</b></h2>
                         <p></p>
-                        <h5>05211940000031</h5>
+                        <h5 class="text-primary">05211940000031</h5>
                         <p class="text-white-75 font-weight-light f12">Halo rek! Perkenalkan namaku Muhamamd Farouq Faisal Munzir Busnia, biasanya dipanggil Farouq. Aku salah satu dari Mahasiswa Departemen Sistem Informasi dan sekarang sedang menempuh kuliah di semester ke-3. </p>
+                        <a style="margin-top: 20px; margin-bottom: 20px;" class="btn btn-dark btn-xl js-scroll-trigger" href="https://farouqbusnia.github.io/" target="_blank">Info lengkap</a>
                     </div>
                     <div class="col-lg-4 ml-auto mr-auto text-center" data-aos="zoom-in" data-aos-duration="1500">
                         <img class="img-fluid round-pinggir" src="assets/img/contact-us/alif.jpeg" alt="" />
                         <h2><b>Alif</b></h2>
                         <p></p>
-                        <h5>05211940000032</h5>
+                        <h5 class="text-primary">05211940000032</h5>
                         <p class="text-white-75 font-weight-light f12">Halo rek! Perkenalkan namaku Muhamamd Alif Amri Muzammil, biasanya dipanggil Alif. Aku salah satu dari Mahasiswa Departemen Sistem Informasi dan sekarang sedang menempuh kuliah di semester ke-3.</p>
+                        <a style="margin-top: 20px; margin-bottom: 20px;" class="btn btn-dark btn-xl js-scroll-trigger" href="https://misty-z.github.io/" target="_blank">Info lengkap</a>
                     </div>
                     <div class="col-lg-4 ml-auto mr-auto text-center" data-aos="zoom-in" data-aos-duration="2000">
                         <img class="img-fluid round-pinggir" src="assets/img/contact-us/raisa.jpg" alt="" />
                         <h2><b>Raisa</b></h2>
                         <p></p>
-                        <h5>05211940000035</h5>
-                        <p class="text-white-75 font-weight-light f12">Halo! Nama saya Raisa Zahra Fadila. Biasanya sih dipanggil Raisa, Rais atau bahkan Rys. Sekarang sedang menempuh semester tiga di Institut Teknologi Sepuluh Nopember alias ITS, Departemen Sistem Informasi dan sekarang sedang menempuh kuliah di semester ke-3.</p>
+                        <h5 class="text-primary">05211940000035</h5>
+                        <p class="text-white-75 font-weight-light f12">Halo! Nama saya Raisa Zahra Fadila. Biasanya sih dipanggil Raisa atau Rais. Aku salah satu dari Mahasiswa Departemen Sistem Informasi dan sekarang sedang menempuh kuliah di semester ke-3.</p>
+                        <a style="margin-top: 20px; margin-bottom: 20px;" class="btn btn-dark btn-xl js-scroll-trigger" href="https://raisazhf.github.io/" target="_blank">Info lengkap</a>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
-        </footer>
+
+
+
+      <!-- Footer-->
+      <footer class="bg-light py-5">
+        <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Tugas PWEB Kelas D</div></div>
+    </footer>
+
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
