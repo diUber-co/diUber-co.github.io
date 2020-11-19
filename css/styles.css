@@ -10206,6 +10206,13 @@ padding-right: 5%;
 padding-left: 5%;
 }
 
+
+.p-l-r-15p{
+  padding-right: 15%;
+  padding-left: 15%;
+  }
+
+
 .merrifont{
   font-family: "Merriweather";
 }
