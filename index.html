@@ -174,24 +174,24 @@
 
 
                <!-- FORM PEMESANAN TRANSPORTASI ONLINE FAROUQ 0031 ALIF 0032 RAISA 0035-->
-
+               <body>
                <section class="page-section bg-opacity"  id="pesan">
-                <form class="form-vertical merrifont" id="signup" method="post" action="">
+                <form class="form-vertical  merrifont" style="width: 100%;">
                 <div class="container kotakform" data-aos="zoom-in" data-aos-duration="1500">
-                    
+        
                             <div class="col-lg-12 text-center">
                             <h2 class="text-dark mt-0">Pesan diUber</h2>
                             <hr class="divider dark my-4" /> 
                             </div>
-
-                    
-                            <div class="row">
-                            <div class ="col-lg-6 p-l-r-5p">
+        
+                        <div class="row">
+                           
                                 
+                            <div class ="col-lg-6 p-l-r-5p">
                                <!--LOKASI-->
                                 <div class="form-vertical  merrifont" style="width: 100%;">
                                      <!--Lokasi-->
-                                <div class="form-group merrifont">
+                                <div class="form-group  merrifont">
                                     <label class="col-sm-12 control-label text-dark mt-0 merrifontsans strong" >Lokasi sekarang</label>
                                     <div class="col-lg-12" style="width: 100%;" >
                                         <input type="text" class="form-control" id="us3-address" />
@@ -208,48 +208,41 @@
         
                                 <!--Pilih kendaraan-->
                                 <div class="col-lg-6">
-                                
-                                
+                               
                                     <span class="control-label text-dark mt-0  merrifontsans strong">Pilih kendaraan</span>
                                     <select id="Kendaraan" class="infobox form-control">
                                     <option value="Motor">Motor</option>
                                     <option value="Mobil">Mobil</option>
-                                    </select>
-                                                     
+                                    </select>                                  
                                     </div>
-                                    
+                                   
                                 </div>
                                      <!--memilih metode pembayaran -->
                                 <label class="col-lg-12 control-label text-dark mt-0 merrifontsans strong">Metode Pembayaran</label>
-                                <div style="width: 94%;" class="kotak col-lg-12">
-                              
+                                <div style="width: 94%;" class="kotak col-lg-5">
+                                
                                     <input type="radio" name="paymode" class="infobox" value="Tunai"> Tunai <br>
                                     <p></p>
                                     <input type="radio" name="paymode" class="infobox" value="diUberPay"> diUberPay<br>
                                     <p></p>
-                                    <input type="radio" name="paymode" class="infobox" value="M-Banking"> M-Banking<br>
-                                   
-                                </div>
-                                
-                                <p class="col-lg-12 control-label text-info mt-0 merrifontsans result"></p>       
-                                <span class="col-lg-12 control-label text-primary mt-0 merrifontsans error">Pilih setidaknya satu metode pembayaran!</span>
-                                <label class="col-lg-12 control-label text-dark mt-0 merrifontsans">Nomor Telefon</label>
-                                <div style="width: 94%;" class="col-lg-12">
-                                            
-                                                <!--Isi Nomor-->         
-                                 <div>
-
-                                    <input type="text" class="form-control" name="phone"/>
-                                    <span class="col-lg-12 control-label text-primary mt-0 merrifontsans error">Masukkan nomor telefon yang valid!</span>
-                                </div>                    
-                    </div>               
+                                    <input type="radio" name="paymode" class="infobox" value="M-Banking"> M-Banking<br>    
+                            </div>
+                            <p class="result text-info"></p> 
+                            <label class="col-lg-12 control-label text-primary mt-0 merrifontsans error">Pilih setidaknya satu metode pembayaran!</label>
+                                <!--Isi Nomor-->
+                        <form id="signup" method="post" action="">
+                        <label class="col-lg-12 control-label text-dark mt-0 merrifontsans">Masukkan Nomor</label>
+                        <div><input type="text" class="form-control" name="phone" />
+                        <label class="col-lg-12 control-label text-primary mt-0 merrifontsans error">Masukkan nomor telefon yang valid!</label>
+                    </div>
+                        
                 </div>
         
                     <!--Map-->
         <div class="col-lg-6 justify-content-center" id="us3" style="text-align: center; width: 100%; height: 500px; margin-top:10px;"></div>
                 <div class="clearfix"> &nbsp;</div>
                     <div class="clearfix"></div>
-                    <script>//script map
+                    <script>
                                 $('#us3').locationpicker({
                                 location: {
                                 latitude: 	-7.2574719,
@@ -270,15 +263,13 @@
                             });
                     </script>
         
-                </div>
-            
+                </div>    
             <div class="col-lg-12 text-center">
-                <input class="submit btn btn-dark btn-xl js-scroll-trigger" type="submit" value="Pesan Sekarang">
+                <input class="submit btn btn-dark btn-xl js-scroll-trigger" type="submit" value="Pesan Sekarang"></a>
             </div>
         </form>
-      
-        
-        <script>//script validasi nomor telfon
+            
+            <script> //SCRIPT VALIDASI TELFON
                 $(document).ready(function() { //fungsi yang berjalan saat memuat web
                     $('.error').hide(); //menyembunyikan pesan error
                     $('.submit').click(function(event){ //menjalankan suatu event saat tombol submit diklik
@@ -299,9 +290,47 @@
                     var pattern=new RegExp(/^[0-9-+]+$/); //menentukan nilai data apa saja yang dianggap valid
                     return pattern.test(ph); //memeriksa apakah data sudah sesuai atau belum
                 }
-        </script>
+                
+            </script>
+              <script> //SCRIPT PILIH KENDARAAN
+                $(document).ready(function() {
+                    $('.submit').click(function(event){
+                    var count=$('select option:selected').val();
+                    if(count==0)
+                    {
+                    $('p.result').hide();
+                    }
+                    else
+                    {
+                    $('p.result').show();
+                    }
+                    event.preventDefault();
+                    });
+                    });
+            </script>
+            <script> //SCRIPT PEMBAYARAN
+                $(document).ready(function() {
+                $('.error').hide();
+                $('.submit').click(function(event){
+                var amt=0;
+                var count=$('input:checked').length;
+                if(count==0)
+                {
+                $('p.result').hide();
+                $('.error').show();
+                }
+                else
+                {
+                $('.error').hide();
+                $('p.result').show();
+                $('p.result').text('You have selected '+$('input:checked').attr("value"));
+                }
+                event.preventDefault();
+                });
+                });
+            </script>
             </section>
-
+        </body>
 
 
 
